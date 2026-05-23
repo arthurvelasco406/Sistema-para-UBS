@@ -55,7 +55,6 @@ int main() {
         printf("5. Exibir historico (pilha)\n");
         printf("6. Exibir lista de clientes\n");
         printf("7. Gerar relatorio ordenado\n");
-        /* TODO G03: adicionar opcao 8 - Desfazer atendimento */
         /* TODO G07: o menu de chamar já deve aplicar intercalação */
         printf("0. Sair\n");
         printf("Opcao: ");

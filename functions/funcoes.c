@@ -33,10 +33,6 @@ int buscaBinaria(Cliente vet[], int n, int senha) {
 void ordenar(Cliente vet[], int n) {
     /*
      * TODO: implementar Bubble Sort
-     *
-     * G09: contar e retornar (ou exibir) o número de trocas
-     * G10: implementar dois critérios (por senha e por nome)
-     *      — use um parâmetro int criterio (0=senha, 1=nome)
      */
 }
 
@@ -51,8 +47,6 @@ void gerarRelatorio(Cliente historico[], int n) {
      * 1. Copiar histórico para vetor auxiliar
      * 2. Ordenar com Bubble Sort
      * 3. Exibir
-     * G04: filtrar por intervalo de senhas (usa busca binária)
-     * G10: perguntar critério ao usuário antes de ordenar
      */
 }
 
