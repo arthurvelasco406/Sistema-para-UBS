@@ -3,6 +3,4 @@
 ## Diário de Desenvolvimento
 
 ### Arthur:
-pilhaInicializar()
-pilhaVazia()
-pilhaCheia()
+1. Funçoes de Pilha

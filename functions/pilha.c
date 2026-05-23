@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "../structs.h"
 
 /* ============================================================
@@ -23,18 +24,35 @@ int pilhaCheia(Pilha *p) {
 
 /* Empilha cliente no histórico */
 void pilhaEmpilhar(Pilha *p, Cliente c) {
-    /* TODO: implementar */
+    if (pilhaCheia(p) == 0) {
+        p->itens[p->topo] = c;
+        p->topo++;
+    }
 }
 
 /* Desempilha e retorna o topo */
 Cliente pilhaDesempilhar(Pilha *p) {
     Cliente vazio = {0};
-    /* TODO: implementar */
+    if (pilhaVazia(p) == 0) {
+        p->topo--;
+        vazio = p->itens[p->topo];
+    }
     return vazio;
 }
 
 /* Exibe o histórico de atendimentos */
 void pilhaExibir(Pilha *p) {
-    /* TODO: implementar */
-}
+    printf("\n =============================");
+    printf("\n | HISTORICO DE ATENDIMENTOS |");
+    printf("\n =============================\n\n");
 
+    for (int i = 0; i < 4; i++) {
+        char prioridade[10] = "Normal";
+        if (p->itens[i].prioritario == 1) prioridade = "VIP";
+        printf("\n%03d - %s | Prioridade: %s | Fone: %s",
+            p->itens[i].senha,
+            p->itens[i].nome,
+            prioridade,
+            p->itens[i].telefone);
+    }
+}
