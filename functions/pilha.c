@@ -44,15 +44,15 @@ Cliente pilhaDesempilhar(Pilha *p) {
 void pilhaExibir(Pilha *p) {
     printf("\n =============================");
     printf("\n | HISTORICO DE ATENDIMENTOS |");
-    printf("\n =============================\n\n");
+    printf("\n =============================\n");
 
     for (int i = 0; i < 4; i++) {
         char prioridade[10] = "Normal";
-        if (p->itens[i].prioritario == 1) prioridade = "VIP";
-        printf("\n%03d - %s | Prioridade: %s | Fone: %s",
+        if (p->itens[i].prioritario == 1) prioridade = "Urgência";
+        printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
             p->itens[i].senha,
             p->itens[i].nome,
-            prioridade,
-            p->itens[i].telefone);
+            p->itens[i].telefone,
+            prioridade);
     }
 }

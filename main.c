@@ -68,7 +68,8 @@ int main() {
                 scanf(" %49s", c.nome);
                 printf("Prioritario? (1=sim, 0=nao) [VIP/Urgencia (prioritario=1)]: ");
                 scanf("%d", &c.prioritario);
-                printf("char telefone[20]: ");
+                printf("Telefone: ");
+                scanf((" %19s", c.telefone));
                 /* TODO: ler campo extra conforme tipo */
 
                 filaInserir(&fila, c);
