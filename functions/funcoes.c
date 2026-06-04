@@ -9,13 +9,6 @@
  * Antes de chamar buscaBinaria(), ordenar o vetor com Bubble Sort.
  */
 
-/* Busca sequencial por senha — percorre elemento a elemento */
-int buscaSequencial(Cliente vet[], int n, int senha) {
-    /* TODO: implementar */
-    /* G02/G09: contar e exibir o número de comparações */
-    return -1; /* retorna índice ou -1 se não encontrado */
-}
-
 /* Busca binária por senha — exige vetor ordenado */
 int buscaBinaria(Cliente vet[], int n, int senha) {
     int low = 0, high = n - 1;
