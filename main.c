@@ -100,7 +100,12 @@ int main() {
             case 5: pilhaExibir(&historico); break;
             case 6: listaExibir(lista);      break;
             case 7: {
-                /* TODO: copiar histórico para vetor e chamar gerarRelatorio */
+                Cliente auxHistorico[4];
+                int i;
+                for (i = 0; i < 4; i++) {
+                    auxHistorico[i] = historico.itens[i];
+                }
+                gerarRelatorio(auxHistorico, 4);
                 break;
             }
             case 0: printf("Encerrando...\n"); break;

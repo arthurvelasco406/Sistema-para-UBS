@@ -1,3 +1,4 @@
+#include "stdio.h"
 #include "../structs.h"
 
 /* ============================================================
@@ -36,13 +37,26 @@ void ordenar(Cliente vet[], int n) {
 
 /* Gera relatório de atendimentos ordenado */
 void gerarRelatorio(Cliente historico[], int n) {
-    /* TODO:
-     * 1. Copiar histórico para vetor auxiliar
-     * 2. Ordenar com Bubble Sort
-     * 3. Exibir
-     */
-}
+    Cliente aux[n] = historico;
+    ordenar(aux, n);
+    int i;
 
+    printf("\n ==============================");
+    printf("\n |         RELATORIO          |");
+    printf("\n ==============================\n");
+
+    for (i = 0; i < n; i++) {
+        if (aux[i] != NULL) {
+            char prioridade[10] = "Normal";
+            if (aux[i].prioritario == 1) prioridade = "Urgência";
+            printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
+                aux[i].senha,
+                aux[i].nome,
+                aux[i].telefone,
+                prioridade);
+        }
+    }
+}
 
 /* ============================================================
  * REQUISITO ÚNICO DO GRUPO G07

@@ -6,12 +6,8 @@
  * FUNÇÕES DA LISTA ENCADEADA
  * ============================================================ */
 
-/* Insere cliente na lista */
+/* Insere cliente na lista e mantem ordenado pela senha*/
 No* listaInserir(No *inicio, Cliente c) {
-
-    /* TODO: a implementação está ordenando pela senha. Faz sentido manter assim?*/
-    /* G01: manter lista ordenada por senha na inserção */
-
     No *noh = (No*)malloc(sizeof(No));
     No *aux;
 
@@ -43,28 +39,23 @@ No* listaInserir(No *inicio, Cliente c) {
 
 /* Remove cliente da lista pelo número da senha */
 No* listaRemover(No *inicio, int senha) {
-    /* TODO: deverá retornar o inicio da lista ou o elemento removido? */
-    /*G10: usar busca binária antes de remover */
-
     No *aux = inicio;
+    No *removed = NULL;
+
     if (inicio->dado.senha == senha) {
-        aux = inicio->prox;
-        free(inicio);
-        *inicio = NULL;
-        return aux;
+        removed = inicio;
+        inicio = inicio->prox;
     }
     else {
-        while (aux->prox != NULL) {
-            if (aux->prox->dado.senha == senha) {
-                No *auxProx = aux->prox->prox;
-                free(aux->prox);
-                aux->prox->prox = NULL;
-                aux->prox = auxProx;
-                return inicio;
-            }
+        while (aux->prox != NULL && aux->prox->dado.senha != senha) {
             aux = aux->prox;
         }
+        if (aux->prox) {
+            removed = aux->prox;
+            aux->prox = removed->prox;
+        }
     }
+    return removed;
 }
 
 /* Exibe todos os clientes da lista */
