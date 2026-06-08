@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 #include "../structs.h"
 
 /* ============================================================
@@ -42,13 +44,18 @@ Cliente pilhaDesempilhar(Pilha *p) {
 
 /* Exibe o histórico de atendimentos */
 void pilhaExibir(Pilha *p) {
-    printf("\n =============================");
-    printf("\n | HISTORICO DE ATENDIMENTOS |");
-    printf("\n =============================\n");
+    printf("\n ==============================");
+    printf("\n | HISTORICO DE ATENDIMENTOS  |");
+    printf("\n ==============================\n");
 
-    for (int i = 0; i < 4; i++) {
+    if (pilhaVazia(p)) {
+        printf("\n        Historico vazio!");
+        return;
+    }
+
+    for (int i = 0; i < p->topo; i++) {
         char prioridade[10] = "Normal";
-        if (p->itens[i].prioritario == 1) prioridade = "Urgência";
+        if (p->itens[i].prioritario == 1) strcpy(prioridade,"Urgência");
         printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
             p->itens[i].senha,
             p->itens[i].nome,
