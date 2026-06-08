@@ -11,7 +11,8 @@
 #### Gabriel:
 
 #### Leandra:
-
+1. Função de Busca Binária
+2. Função de Ordenação com Bubble Sort
 
 ### Questões
 
