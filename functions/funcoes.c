@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "stdio.h"
 #include "../structs.h"
 
@@ -13,9 +15,17 @@
 /* Busca binária por senha — exige vetor ordenado */
 int buscaBinaria(Cliente vet[], int n, int senha) {
     int low = 0, high = n - 1;
-    /* TODO: implementar */
-    /* G04/G10: exibir número de comparações realizadas */
-    return -1; /* retorna índice ou -1 se não encontrado */
+    while (low <= high) {
+        int mid = (low+high) / 2;
+        if (vet[mid].senha == senha) {
+            return mid;
+        } else if (vet[mid].senha < senha) {
+            low = mid + 1;
+        } else {
+            high = mid -1;
+        }
+    }
+    return -1;
 }
 
 
@@ -25,9 +35,17 @@ int buscaBinaria(Cliente vet[], int n, int senha) {
 
 /* Ordena vetor de clientes por número de senha (crescente) */
 void ordenar(Cliente vet[], int n) {
-    /*
-     * TODO: implementar Bubble Sort
-     */
+    Cliente aux;
+    for (int i =0; i < n -1; i++) {
+
+        for (int j = 0; j < i;j++) {
+            if (vet[j].senha > vet[j+1].senha) {
+                aux = vet[j];
+                vet[j] = vet[j+1];
+                vet[j+1] = aux;
+            }
+        }
+    }
 }
 
 
@@ -37,7 +55,12 @@ void ordenar(Cliente vet[], int n) {
 
 /* Gera relatório de atendimentos ordenado */
 void gerarRelatorio(Cliente historico[], int n) {
-    Cliente aux[n] = historico;
+    if (n == 0) {
+        printf("\nHistorico vazio!");
+        return;
+    }
+    Cliente aux[n];
+    for (int i = 0; i < n; i++) aux[i] = historico[i];
     ordenar(aux, n);
     int i;
 
@@ -46,15 +69,13 @@ void gerarRelatorio(Cliente historico[], int n) {
     printf("\n ==============================\n");
 
     for (i = 0; i < n; i++) {
-        if (aux[i] != NULL) {
             char prioridade[10] = "Normal";
-            if (aux[i].prioritario == 1) prioridade = "Urgência";
+            if (aux[i].prioritario == 1) strcpy(prioridade,"Urgência");
             printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
                 aux[i].senha,
                 aux[i].nome,
                 aux[i].telefone,
                 prioridade);
-        }
     }
 }
 
