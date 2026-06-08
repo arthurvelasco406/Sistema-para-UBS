@@ -9,9 +9,11 @@
 3. Imprimir Relatório
 
 #### Gabriel:
+1. implementação de fila normal e prioritária
 
 #### Leandra:
-
+1. Função de Busca Binária
+2. Função de Ordenação com Bubble Sort
 
 ### Questões
 

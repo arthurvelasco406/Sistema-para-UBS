@@ -62,6 +62,10 @@ int main() {
 
         switch (opcao) {
             case 1: {
+                if (filaCheia(&fila)) {
+                    printf("Fila cheia...\n");
+                    break;
+                }
                 Cliente c = {0};
                 c.senha = proxSenha++;
                 printf("Nome: ");
