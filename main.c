@@ -69,7 +69,7 @@ int main() {
                 printf("Prioritario? (1=sim, 0=nao) [VIP/Urgencia (prioritario=1)]: ");
                 scanf("%d", &c.prioritario);
                 printf("Telefone: ");
-                scanf((" %19s", c.telefone));
+                scanf("%19s", c.telefone);
                 /* TODO: ler campo extra conforme tipo */
 
                 filaInserir(&fila, c);
@@ -94,6 +94,22 @@ int main() {
                 scanf("%d", &senha);
                 /* TODO: usar Binária */
                 /* Converter lista para vetor auxiliar antes da busca */
+                Cliente vet[9];
+                int tam = 0;
+                No* aux = lista;
+                while (aux != NULL && tam < 9) {
+                    vet[tam] = aux->dado;
+                    tam++;
+                    aux = aux->prox;
+                }
+                ordenar(vet,tam);
+                int resultado = buscaBinaria(vet,tam,senha);
+                if (resultado != -1) {
+                    printf("Cliente encontrado: %s - Fone: %s\n", vet[resultado].nome, vet[resultado].telefone);
+                }
+                else {
+                    printf("Cliente nao encontrado.\n");
+                }
                 break;
             }
             case 4: filaExibir(&fila);      break;
@@ -102,10 +118,10 @@ int main() {
             case 7: {
                 Cliente auxHistorico[4];
                 int i;
-                for (i = 0; i < 4; i++) {
+                for (i = 0; i < historico.topo; i++) {
                     auxHistorico[i] = historico.itens[i];
                 }
-                gerarRelatorio(auxHistorico, 4);
+                gerarRelatorio(auxHistorico, historico.topo);
                 break;
             }
             case 0: printf("Encerrando...\n"); break;
