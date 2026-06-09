@@ -36,12 +36,15 @@
 
 int main() {
     Fila   fila;
+    Fila   filaPrioritaria;
     Pilha  historico;
     No    *lista   = NULL;
     int    opcao   = 0;
     int    proxSenha = 1;
+    int    ciclo = 0;
 
     filaInicializar(&fila);
+    filaInicializar(&filaPrioritaria);
     pilhaInicializar(&historico);
 
     printf("=== Sistema de Atendimento — UBS ===\n\n");
@@ -62,34 +65,69 @@ int main() {
 
         switch (opcao) {
             case 1: {
-                if (filaCheia(&fila)) {
-                    printf("Fila cheia...\n");
-                    break;
-                }
+                int temp;
                 Cliente c = {0};
+                printf("Prioritario? (1=sim, 0=nao) [VIP/Urgencia (prioritario=1)]: ");
+                scanf("%d",
+                    &c.prioritario);
+                if (c.prioritario == 1) {
+                    if (filaCheia(&filaPrioritaria)) {
+                        printf("Fila prioritaria cheia...");
+                        break;
+                    }
+                } else {
+                    if (filaCheia(&fila)) {
+                        printf("Fila cheia...\n");
+                        break;
+                    }
+                }
                 c.senha = proxSenha++;
                 printf("Nome: ");
-                scanf(" %49s", c.nome);
-                printf("Prioritario? (1=sim, 0=nao) [VIP/Urgencia (prioritario=1)]: ");
-                scanf("%d", &c.prioritario);
+                scanf(" %49s",
+                    c.nome);
                 printf("Telefone: ");
-                scanf("%19s", c.telefone);
+                scanf("%19s",
+                    c.telefone);
                 /* TODO: ler campo extra conforme tipo */
 
-                filaInserir(&fila, c);
+                if (c.prioritario == 1) {
+                    filaInserir(&filaPrioritaria, c);
+                } else {
+                    filaInserir(&fila, c);
+                }
                 lista = listaInserir(lista, c);
-                printf("Cliente cadastrado. Senha: %03d\n", c.senha);
+                printf("Cliente cadastrado. Senha: %03d\n",
+                    c.senha);
                 break;
             }
             case 2: {
-                if (filaVazia(&fila)) {
-                    printf("Fila vazia.\n");
+                Cliente atendido;
+                if (filaVazia(&fila) && !filaVazia(&filaPrioritaria)) {
+                    atendido = filaRemover(&filaPrioritaria);
+                    ciclo = 0;
+                } else if (!filaVazia(&fila) && filaVazia(&filaPrioritaria)) {
+                    atendido = filaRemover(&fila);
+                    ciclo++;
+                } else if (ciclo < 2) {
+                    if (filaVazia(&fila)) {
+                        printf("Fila vazia...\n");
+                        break;
+                    }
+                    atendido = filaRemover(&fila);
+                    ciclo++;
                 } else {
-                    Cliente atendido = filaRemover(&fila);
-                    pilhaEmpilhar(&historico, atendido);
-                    printf("Atendendo: %s (Senha %03d)\n",
-                           atendido.nome, atendido.senha);
+                    if (filaVazia(&filaPrioritaria)) {
+                        printf("Fila prioritaria vazia...\n");
+                        ciclo = 0;
+                        break;
+                    }
+                    atendido = filaRemover(&filaPrioritaria);
+                    ciclo = 0;
                 }
+                pilhaEmpilhar(&historico, atendido);
+                printf("Atendendo: %s (Senha %03d)\n",
+                    atendido.nome,
+                    atendido.senha);
                 break;
             }
             case 3: {
@@ -116,7 +154,12 @@ int main() {
                 }
                 break;
             }
-            case 4: filaExibir(&fila);      break;
+            case 4:
+                printf("Fila normal:\n");
+                filaExibir(&fila);
+                printf("Fila prioritaria:\n");
+                filaExibir(&filaPrioritaria);
+                break;
             case 5: pilhaExibir(&historico); break;
             case 6: listaExibir(lista);      break;
             case 7: {

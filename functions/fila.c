@@ -23,17 +23,18 @@ int filaVazia(Fila *f) {
 
 /* Retorna 1 se a fila estiver cheia, 0 caso contrário */
 int filaCheia(Fila *f) {
-    if ((f->final + 1) % 9 == f->inicio) {
-        return 1;
-    }
+    // if ((f->final) % 9 == f->inicio)
+    int tam = f->final+f->inicio;
+    if (tam == 9) return 1;
     return 0;
 }
 
 /* Insere cliente na fila */
 void filaInserir(Fila *f, Cliente c) {
     /* Lembrar: fila circular usa (f->final % 9) */
-    if (!filaCheia(f)) {
+    if (filaCheia(f)) {
         printf("Erro ao inserir... Fila cheia.\n");
+        return;
     }
     f->itens[f->final] = c;
     f->final++;
@@ -54,18 +55,18 @@ Cliente filaRemover(Fila *f) {
 /* Exibe o estado atual da fila */
 void filaExibir(Fila *f) {
     if(filaVazia(f)) {
-        printf("Fila vazia...\n");
+        printf("Fila vazia...\n\n");
         return;
     }
     int tam = f->final + f->inicio;
     for (int i = 0; i < tam; i++) {
         printf("Nome: %s\n", f->itens[i].nome);
         if (f->itens[i].prioritario == 1) {
-            printf("Prioritario: Urgencia\n");
+            printf("Prioridade: Urgencia\n");
         } else {
-            printf("Prioritario: Normal\n");
+            printf("Prioridade: Normal\n");
         }
         printf("Senha: %03d\n", f->itens[i].senha);
-        printf("Telefone: %s\n", f->itens[i].telefone);
+        printf("Telefone: %s\n\n", f->itens[i].telefone);
     }
 }
