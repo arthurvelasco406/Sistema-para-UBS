@@ -4,12 +4,13 @@
 
 ### Implementações
 #### Arthur:
-1. Funçoes de Pilha
+1. Funções de Pilha
 2. Funções de Lista Encadeada
 3. Imprimir Relatório
 
 #### Gabriel:
-1.Implementação de fila normal e prioritária
+1. Funções de Fila
+2. Função de Intercalação
 
 #### Leandra:
 1. Função de Busca Binária
