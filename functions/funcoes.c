@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <string.h>
 
 #include "stdio.h"
@@ -87,3 +88,36 @@ void gerarRelatorio(Cliente historico[], int n) {
  * Dois tipos de fila intercalados: fila normal e prioritária; regra de chamada: 1 prioritário a cada 2 normais.
  * TODO: implementar a função (ou funções) necessárias aqui.
  */
+
+bool cicloClientes(Cliente *atendido, Fila *fila, Fila *filaPrior, int *ciclo) {
+    if (filaVazia(fila) && !filaVazia(filaPrior)) {
+        *atendido = filaRemover(filaPrior);
+        *ciclo = 0;
+    } else if (!filaVazia(fila) && filaVazia(filaPrior)) {
+        *atendido = filaRemover(fila);
+        *ciclo++;
+    } else if (*ciclo < 2) {
+        if (filaVazia(fila)) {
+            printf("\nFila vazia...\n");
+            return false;
+        }
+        *atendido = filaRemover(fila);
+        *ciclo++;
+    } else {
+        if (filaVazia(filaPrior)) {
+            printf("\nFila prioritaria vazia...\n");
+            *ciclo = 0;
+            return false;
+        }
+        *atendido = filaRemover(filaPrior);
+        *ciclo = 0;
+    }
+    return true;
+}
+
+ void clear_input_buffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        // discard characters
+    }
+}

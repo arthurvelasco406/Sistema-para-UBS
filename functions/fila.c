@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "../structs.h"
 
@@ -33,12 +34,11 @@ int filaCheia(Fila *f) {
 void filaInserir(Fila *f, Cliente c) {
     /* Lembrar: fila circular usa (f->final % 9) */
     if (filaCheia(f)) {
-        printf("Erro ao inserir... Fila cheia.\n");
+        printf("\nErro ao inserir... Fila cheia.\n");
         return;
     }
     f->itens[f->final] = c;
-    f->final++;
-    printf("Inserido com sucesso!\n");
+    f->final = (f->final + 1) % 9;
 }
 
 /* Remove e retorna o primeiro cliente da fila */
@@ -48,25 +48,33 @@ Cliente filaRemover(Fila *f) {
     Cliente temp = vazio;
     vazio = f->itens[f->inicio];
     f->itens[f->inicio] = temp;
-    f->inicio++;
+    f->inicio = (f->inicio + 1) % 9;
     return vazio;
 }
 
 /* Exibe o estado atual da fila */
-void filaExibir(Fila *f) {
+void filaExibir(Fila *f, int prioridade) {
     if(filaVazia(f)) {
-        printf("Fila vazia...\n\n");
         return;
     }
-    int tam = f->final + f->inicio;
-    for (int i = 0; i < tam; i++) {
+    
+    printf("\n ==============================");
+    if(prioridade == 1) {
+	    printf("\n |      FILA PRIORITARIA      |");
+	} else {
+		printf("\n |            FILA            |");
+	}
+    printf("\n ==============================\n");
+	int i = f->inicio;
+	while(i != f->final) {
         printf("Nome: %s\n", f->itens[i].nome);
-        if (f->itens[i].prioritario == 1) {
+        if (prioridade == 1) {
             printf("Prioridade: Urgencia\n");
         } else {
             printf("Prioridade: Normal\n");
         }
         printf("Senha: %03d\n", f->itens[i].senha);
         printf("Telefone: %s\n\n", f->itens[i].telefone);
+        i = (i + 1) % 9;
     }
 }

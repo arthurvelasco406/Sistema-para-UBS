@@ -20,7 +20,9 @@ int pilhaVazia(Pilha *p) {
 
 /* Retorna 1 se a pilha estiver cheia, 0 caso contrário */
 int pilhaCheia(Pilha *p) {
-    if (p->topo == 4) return 1;
+    if (p->topo == 4) {
+        return 1;
+    }
     return 0;
 }
 
@@ -44,14 +46,14 @@ Cliente pilhaDesempilhar(Pilha *p) {
 
 /* Exibe o histórico de atendimentos */
 void pilhaExibir(Pilha *p) {
-    printf("\n ==============================");
-    printf("\n | HISTORICO DE ATENDIMENTOS  |");
-    printf("\n ==============================\n");
-
     if (pilhaVazia(p)) {
         printf("\n        Historico vazio!");
         return;
     }
+    printf("\n ==============================");
+    printf("\n | HISTORICO DE ATENDIMENTOS  |");
+    printf("\n ==============================\n");
+
 
     for (int i = 0; i < p->topo; i++) {
         char prioridade[10] = "Normal";

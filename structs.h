@@ -1,7 +1,8 @@
-
 /* ============================================================
  * DEFINIÇÃO DAS STRUCTS
  * ============================================================ */
+
+#include <stdbool.h>
 
 /* Struct do cliente — adaptar conforme parâmetros do grupo */
 typedef struct cliente {
@@ -44,7 +45,7 @@ void filaInserir(Fila *f, Cliente c);
 
 Cliente filaRemover(Fila *f);
 
-void filaExibir(Fila *f);
+void filaExibir(Fila *f, int n);
 
 /* ============================================================
  * FUNÇÕES DA PILHA (HISTÓRICO)
@@ -98,6 +99,8 @@ void gerarRelatorio(Cliente historico[], int n);
  * REQUISITO ÚNICO DO GRUPO G07
  * ============================================================ */
 
+bool cicloClientes(Cliente *c, Fila *f, Fila *fp, int *n);
+void clear_input_buffer();
 /*
  * Dois tipos de fila intercalados: fila normal e prioritária; regra de chamada: 1 prioritário a cada 2 normais.
  * TODO: implementar a função (ou funções) necessárias aqui.
