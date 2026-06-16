@@ -47,7 +47,7 @@ Cliente pilhaDesempilhar(Pilha *p) {
 /* Exibe o histórico de atendimentos */
 void pilhaExibir(Pilha *p) {
     if (pilhaVazia(p)) {
-        printf("\n        Historico vazio!");
+        printf("\n        Historico vazio!\n");
         return;
     }
     printf("\n ==============================");
