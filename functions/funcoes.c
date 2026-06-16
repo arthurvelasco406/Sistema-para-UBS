@@ -47,7 +47,33 @@ void ordenar(Cliente vet[], int n) {
         }
     }
 }
-
+    /*
+    * TRACE MANUAL — Bubble Sort
+    * Dados iniciais: [001,007,002,009,004]
+    * 1ª varredura
+    * Passagem 1: 001 x 007 → sem troca
+    * Resultado: [001,007,002,009,004]
+    * Passagem 2: 007 x 002 → troca
+    * Resultado: [001,002,007,009,004]
+    * Passagem 3: 007 x 009 → sem troca
+    * Resultado: [001,002,007,009,004]
+    * Passagem 4: 009 x 004 → troca
+    * Resultado: [001,002,007,004,009]
+    * 2ª varredura
+    * Passagem 1: 001 x 002 → sem troca
+    * Resultado: [001,002,007,004,009]
+    * Passagem 2: 002 x 007 → sem troca
+    * Resultado: [001,002,007,004,009]
+    * Passagem 3: 007 x 004 → troca
+    * Resultado: [001,002,004,007,009]
+    * Passagem 4: 007 x 009 → sem troca
+    * Resultado: [001,002,004,007,009]
+    * 3ª varredura
+    * Nenhuma troca realizada.
+    * Algoritmo encerrado.
+    * Vetor final ordenado: [001,002,004,007,009]
+    * Total de trocas realizadas: 3
+    */
 
 /* ============================================================
  * RELATÓRIO
