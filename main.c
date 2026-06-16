@@ -40,6 +40,7 @@ int main() {
     Fila   fila;
     Fila   filaPrioritaria;
     Pilha  historico;
+	Pilha  retira;
     No    *lista   = NULL;
     int    opcao   = 0;
     int    proxSenha = 1;
@@ -48,6 +49,7 @@ int main() {
     filaInicializar(&fila);
     filaInicializar(&filaPrioritaria);
     pilhaInicializar(&historico);
+	pilhaInicializar(&retira);
 
     printf("=== Sistema de Atendimento — UBS ===\n\n");
 
@@ -106,7 +108,7 @@ int main() {
 					}
 				}
 
-                if(temp == 1) {
+                if(temp) {
                 	temp = 0;
                 	break;
 				}
@@ -117,13 +119,14 @@ int main() {
                 clear_input_buffer();
 
                 c.senha = proxSenha++;
+				
                 /* TODO: ler campo extra conforme tipo */
-
                 if (c.prioritario == 1) {
                     filaInserir(&filaPrioritaria, c);
                 } else {
                     filaInserir(&fila, c);
                 }
+				
                 lista = listaInserir(lista, c);
                 printf("\nCliente cadastrado. Senha: %03d\n",
                     c.senha);
@@ -142,7 +145,7 @@ int main() {
                     atendido.nome,
                     atendido.senha);
 
-                // Temporizador para relatorio
+                // Temporizador para relatorio..?
 
                 break;
             }
@@ -182,8 +185,8 @@ int main() {
                 break;
             }
             case 5: {
-                    pilhaExibir(&historico);
-                    break;
+                pilhaExibir(&historico);
+                break;
                 }
             case 6: {
                 listaExibir(lista);
