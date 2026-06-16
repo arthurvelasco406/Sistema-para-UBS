@@ -57,7 +57,7 @@ void ordenar(Cliente vet[], int n) {
 /* Gera relatório de atendimentos ordenado */
 void gerarRelatorio(Cliente historico[], int n) {
     if (n == 0) {
-        printf("\nHistorico vazio!");
+        printf("\nHistorico vazio!\n");
         return;
     }
     Cliente aux[n];
