@@ -67,14 +67,10 @@ void filaExibir(Fila *f, int prioridade) {
     printf("\n ==============================\n");
 	int i = f->inicio;
 	while(i != f->final) {
-        printf("Nome: %s\n", f->itens[i].nome);
-        if (prioridade == 1) {
-            printf("Prioridade: Urgencia\n");
-        } else {
-            printf("Prioridade: Normal\n");
-        }
-        printf("Senha: %03d\n", f->itens[i].senha);
-        printf("Telefone: %s\n\n", f->itens[i].telefone);
+        printf(" | %03d - %s - Fone: %s\n\n",
+			f->itens[i].senha,
+			f->itens[i].nome,
+			f->itens[i].telefone);
         i = (i + 1) % 9;
     }
 }
