@@ -73,9 +73,9 @@ void gerarRelatorio(PilhaTimer *p) {
         for(int i = 0; i < 68; i++) printf("\xCD");
         printf("\xBB\n");
         imprimirCentroLinha("RELATORIO DE ATENDIMENTOS",68);
-        printf("\xC7");
+        printf("\xBA");
         for(int i = 0; i < 68; i++) printf("\xC4");
-        printf("\xB6\n");
+        printf("\xBA\n");
         imprimirCentroLinha(" Nenhum atendimento registrado.",68);
         printf("\xC8");
         for(int i = 0; i < 68; i++) printf("\xCD");
@@ -89,9 +89,9 @@ void gerarRelatorio(PilhaTimer *p) {
     for(int i = 0; i < 68; i++) printf("\xCD");
     printf("\xBB\n");
         imprimirCentroLinha("RELATORIO DE ATENDIMENTOS",68);
-    printf("\xC7");
+    printf("\xBA");
     for(int i = 0; i < 68; i++) printf("\xC4");
-    printf("\xB6\n");
+    printf("\xBA\n");
 
     for (int i = 0; i < p->topo; i++) {
         char prioridade[12] = "Normal";

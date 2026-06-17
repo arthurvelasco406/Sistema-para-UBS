@@ -67,9 +67,9 @@ void listaExibir(No *inicio) {
     for(int i = 0; i < 68; i++) printf("\xCD");
     printf("\xBB\n");
     imprimirCentroLinha("LISTA DE PACIENTES", 68);
-    printf("\xC7");
+    printf("\xBA");
     for(int i = 0; i < 68; i++) printf("\xC4");
-    printf("\xB6\n");
+    printf("\xBA\n");
 
     if (inicio == NULL) {
         imprimirCentroLinha("Nenhum paciente cadastrado.",68);

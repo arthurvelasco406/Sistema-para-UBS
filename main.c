@@ -74,9 +74,9 @@ void imprimirMenu() {
     imprimirCentro("UBS  -  Grupo G07", L);
 
     /* Divisor */
-    printf("\xC7");
+    printf("\xBA");
     for (int i = 0; i < L; i++) printf("\xC4");
-    printf("\xB6\n");
+    printf("\xBA\n");
 
     /* Seção: Clientes */
     imprimirCentro("[ CLIENTES ]", L);
@@ -85,9 +85,9 @@ void imprimirMenu() {
     imprimirOpcao("[3]", "Buscar cliente por senha", L);
 
     /* Divisor */
-    printf("\xC7");
+    printf("\xBA");
     for (int i = 0; i < L; i++) printf("\xC4");
-    printf("\xB6\n");
+    printf("\xBA\n");
 
     /* Seção: Consultas */
     imprimirCentro("[ CONSULTAS ]", L);
@@ -97,9 +97,9 @@ void imprimirMenu() {
     imprimirOpcao("[7]", "Gerar relatorio ordenado", L);
 
     /* Divisor */
-    printf("\xC7");
+    printf("\xBA");
     for (int i = 0; i < L; i++) printf("\xC4");
-    printf("\xB6\n");
+    printf("\xBA\n");
 
     /* Sair */
     imprimirOpcao("[0]", "Sair do sistema", L);
@@ -194,7 +194,7 @@ int main() {
                 clear_input_buffer();
 
                 for(int i = 0; i < sizeof(c.telefone); i++) {
-                    if(!isdigit(c.telefone[i])) {
+                    if(isalpha(c.telefone[i])) {
                         printf("Valor invalido!\n");
                         temp = 1;
                         break;
@@ -280,9 +280,9 @@ int main() {
                     for(int i = 0; i < L; i++) printf("\xCD");
                     printf("\xBB\n");
                     imprimirCentroLinha("CLIENTE ENCONTRADO", L);
-                    printf("\xC7");
+                    printf("\xBA");
                     for(int i = 0; i < L; i++) printf("\xC4");
-                    printf("\xB6\n");
+                    printf("\xBA\n");
 
                     char linha1[L], linha2[L];
                     snprintf(linha1, sizeof(linha1), " Nome: %s", vet[resultado].nome);

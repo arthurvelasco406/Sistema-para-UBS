@@ -59,7 +59,7 @@ void filaExibir(Fila *f, int prioridade) {
     }
 
     printf("\n\xC9");
-    for(int i = 0; i < 52; i++) printf("\xCD");
+    for(int i = 0; i < 68; i++) printf("\xCD");
     printf("\xBB\n");
 
     if(prioridade == 1) {
@@ -68,23 +68,23 @@ void filaExibir(Fila *f, int prioridade) {
     imprimirCentroLinha("FILA NORMAL",68);
     }
 
-    printf("\xC7");
-    for(int i = 0; i < 52; i++) printf("\xC4");
-    printf("\xB6\n");
+    printf("\xBA");
+    for(int i = 0; i < 68; i++) printf("\xC4");
+    printf("\xBA\n");
 
     int i = f->inicio;
     while(i != f->final) {
-        char linha[64];
+        char linha[68];
         snprintf(linha, sizeof(linha), " [%03d] %-15s  Fone: %s",
             f->itens[i].senha,
             f->itens[i].nome,
             f->itens[i].telefone);
-        printf("\xBA%-52s\xBA\n", linha);
+        printf("\xBA%-68s\xBA\n", linha);
         i = (i + 1) % 9;
     }
 
     printf("\xC8");
-    for(int i = 0; i < 52; i++) printf("\xCD");
+    for(int i = 0; i < 68; i++) printf("\xCD");
     printf("\xBC\n");
 }
 
