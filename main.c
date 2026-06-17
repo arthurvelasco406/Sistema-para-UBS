@@ -17,14 +17,36 @@
  *
  * Requisito único: Dois tipos de fila intercalados: fila normal e prioritária; regra de chamada: 1 prioritário a cada 2 normais.
  * ============================================================
+ * TRACE - Bubble sort
+ * Dados iniciais: 004,002,006,001,003,005
+ * 1° varredura
+ * Passada 1 - pos 0 troca com 1 
+ * resultado: 002,004,006,001,003,005
+ * Passada 2 - nao troca
+ * resultado: 002,004,006,001,003,005
+ * Passada 3 - pos 2 troca com pos 3
+ * resultado: 002,004,001,006,003,005
+ * Passada 4 - pos 3 troca com pos 4
+ * resultado: 002,004,001,003,006,005
+ * Passada 5 - pos 4 troca com pos 5
+ * resultado: 002,004,001,003,005,006
+ * Fim 1° varredura
  *
- * TRACE MANUAL — (preencher aqui antes da entrega)
- * Algoritmo: Bubble Sort
- * Dados iniciais: [ preencher com senhas reais do contexto ]
- *
- * Passagem 1: ...
- * Passagem 2: ...
- * Resultado final: ...
+ * 2° varredura 
+ * Passada 1 - nao troca
+ * resultado: 002,004,001,003,005,006
+ * Passada 2 - 1 troca com 2
+ * resultado: 002,001,004,003,005,006
+ * Passada 3 - 2 troca com 3
+ * resultado: 002,001,003,004,005,006
+ * Passada 4 e Passada 5 nao trocam
+ * resultado: 002,001,003,004,005,006
+ * Fim 2° Varredura
+ * 3° Varredura
+ * Passada 1 = 0 troca com 1
+ * resultado: 001,002,003,004,005,006
+ * Dados ordenados, fim da ordenação.
+ * Total trocas = 7
  * ============================================================
  */
 
