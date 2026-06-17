@@ -21,11 +21,13 @@
 #### Qual foi a maior dificuldade? Como resolveram?
 + Gabriel - A maior dificuldade foi implementar uma lógica de tempo entre um atendimento e o outro, para gerar um relatório de atendimentos.
 
-#### Por que o algoritmo de busca/ordenação atribuído ao grupo é adequado (ou não) para o contexto escolhido?
+#### Por que o algoritmo de busca/ordenação atribuído ao grupo é adequado (ou não) para o contexto escolhido? 
++ Leandra - O algoritmo de ordenação é adequado para ordenar o relatório final pois vem de acordo com a chamada dos pacientes.
++ Leandra - O algoritmo de busca é adequado pois é usado para a busca de cliente por senha em uma lista já ordenada.
 
 #### Qual é o valor de inicio e final da fila após inserir [N] elementos e remover [M]? Mostre o estado do vetor. (N e M conforme tabela do grupo)
 + Gabriel - O início da fila passa a ser [2] e o final dela passa a ser [6]. <br> Estado do vetor = [-,-,3,4,5,6,7,-,-]
 
 #### O algoritmo de ordenação do grupo é estável? Isso importa no contexto escolhido? Justifique.
-
++ Leandra - 
 #### Demonstre o estado da lista encadeada após as três primeiras inserções com dados reais do contexto.
