@@ -1,3 +1,6 @@
+
+
+
 /*
  * ============================================================
  * TRABALHO PRÁTICO — Estrutura de Dados
@@ -30,7 +33,85 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+
+#include "funcoesImprimir.h"
 #include "structs.h"
+
+void imprimirLinha(char esq, char meio, char dir, int largura) {
+    printf("%c", esq);
+    for (int i = 0; i < largura; i++) printf("%c", meio);
+    printf("%c\n", dir);
+}
+
+void imprimirCentro(const char *texto, int largura) {
+    int len = (int)strlen(texto);
+    int pad = (largura - len) / 2;
+    printf("\xBA");
+    for (int i = 0; i < pad; i++) printf(" ");
+    printf("%s", texto);
+    for (int i = 0; i < largura - pad - len; i++) printf(" ");
+    printf("\xBA\n");
+}
+
+void imprimirOpcao(const char *num, const char *texto, int largura) {
+    char linha[128];
+    snprintf(linha, sizeof(linha), "  %s  %s", num, texto);
+    int len = (int)strlen(linha);
+    printf("\xBA%s", linha);
+    for (int i = len; i < largura; i++) printf(" ");
+    printf("\xBA\n");
+}
+void imprimirMenu() {
+    const int L = 38; /* largura interna */
+
+    /* Topo */
+    printf("\xC9");
+    for (int i = 0; i < L; i++) printf("\xCD");
+    printf("\xBB\n");
+
+    /* Título */
+    imprimirCentro("SISTEMA DE ATENDIMENTO", L);
+    imprimirCentro("UBS  -  Grupo G07", L);
+
+    /* Divisor */
+    printf("\xC7");
+    for (int i = 0; i < L; i++) printf("\xC4");
+    printf("\xB6\n");
+
+    /* Seção: Clientes */
+    imprimirCentro("[ CLIENTES ]", L);
+    imprimirOpcao("[1]", "Cadastrar novo cliente", L);
+    imprimirOpcao("[2]", "Chamar proximo cliente", L);
+    imprimirOpcao("[3]", "Buscar cliente por senha", L);
+
+    /* Divisor */
+    printf("\xC7");
+    for (int i = 0; i < L; i++) printf("\xC4");
+    printf("\xB6\n");
+
+    /* Seção: Consultas */
+    imprimirCentro("[ CONSULTAS ]", L);
+    imprimirOpcao("[4]", "Exibir fila atual", L);
+    imprimirOpcao("[5]", "Exibir historico (pilha)", L);
+    imprimirOpcao("[6]", "Exibir lista de clientes", L);
+    imprimirOpcao("[7]", "Gerar relatorio ordenado", L);
+
+    /* Divisor */
+    printf("\xC7");
+    for (int i = 0; i < L; i++) printf("\xC4");
+    printf("\xB6\n");
+
+    /* Sair */
+    imprimirOpcao("[0]", "Sair do sistema", L);
+
+    /* Rodape */
+    printf("\xC8");
+    for (int i = 0; i < L; i++) printf("\xCD");
+    printf("\xBC\n");
+
+    printf("  Opcao: ");
+}
+
 
 /* ============================================================
  * FUNÇÃO PRINCIPAL
@@ -42,33 +123,24 @@ int main() {
     Pilha  historico;
 	Pilha  retira;
     PilhaTimer relatorio;
+    PilhaTimer retiraTimer;
     No    *lista   = NULL;
     int    opcao   = 0;
     int    proxSenha = 1;
     int    ciclo = 0;
     AtendimentoTimer timer = {0};
     bool timerValido = false;
+
     filaInicializar(&fila);
     filaInicializar(&filaPrioritaria);
     pilhaInicializar(&historico);
 	pilhaInicializar(&retira);
     pilhaTimerInicializar(&relatorio);
-
-    printf("=== Sistema de Atendimento — UBS ===\n\n");
+    pilhaTimerInicializar(&retiraTimer);
 
     do {
-
-        printf("\n--- MENU ---\n");
-        printf("1. Cadastrar novo cliente\n");
-        printf("2. Chamar proximo cliente\n");
-        printf("3. Buscar cliente\n");
-        printf("4. Exibir fila atual\n");
-        printf("5. Exibir historico (pilha)\n");
-        printf("6. Exibir lista de clientes\n");
-        printf("7. Gerar relatorio ordenado\n");
+        imprimirMenu();
         /* TODO G07: o menu de chamar já deve aplicar intercalação */
-        printf("0. Sair\n");
-        printf("Opcao: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -105,7 +177,7 @@ int main() {
 
 				for(int i = 0; i < sizeof(c.nome); i++) {
 					if(isdigit(c.nome[i])) {
-						printf("Valor invalido!");
+						printf("Valor invalido!\n");
 						temp = 1;
 						break;
 					}
@@ -120,6 +192,19 @@ int main() {
                 scanf("%19s",
                     c.telefone);
                 clear_input_buffer();
+
+                for(int i = 0; i < sizeof(c.telefone); i++) {
+                    if(!isdigit(c.telefone[i])) {
+                        printf("Valor invalido!\n");
+                        temp = 1;
+                        break;
+                    }
+                }
+
+                if(temp) {
+                    temp = 0;
+                    break;
+                }
 
                 c.senha = proxSenha++;
 
@@ -136,21 +221,33 @@ int main() {
             }
             case 2: {
                 if (timerValido) {
+                    if (pilhaTimerCheia(&relatorio) == 1) {
+                        while (!pilhaTimerVazia(&relatorio)) {
+                            pilhaTimerEmpilhar(&retiraTimer, pilhaTimerDesempilhar(&relatorio));
+                        }
+                        pilhaTimerDesempilhar(&retiraTimer);
+                        while (!pilhaTimerVazia(&retiraTimer)) {
+                            pilhaTimerEmpilhar(&relatorio, pilhaTimerDesempilhar(&retiraTimer));
+                        }
+                    }
                     timer.tick_fim = GetTickCount();
                     timer.tempo = timer.tick_fim - timer.tick_inicio;
                     timerValido = false;
                     pilhaTimerEmpilhar(&relatorio,timer);
-
                 }
+
                 Cliente atendido;
                 if (!cicloClientes(&atendido, &fila, &filaPrioritaria, &ciclo)) {
                     break;
                 }
                 if (pilhaCheia(&historico) == 1) {
-                        pilhaDesempilhar(&historico);
+                    while (!pilhaVazia(&historico)) {
+                        pilhaEmpilhar(&retira, pilhaDesempilhar(&historico));
                     }
-                if (pilhaTimerCheia(&relatorio) == 1) {
-                        pilhaTimerDesempilhar(&relatorio);
+                    pilhaDesempilhar(&retira);
+                    while (!pilhaVazia(&retira)) {
+                        pilhaEmpilhar(&historico, pilhaDesempilhar(&retira));
+                    }
                 }
                 pilhaEmpilhar(&historico, atendido);
                 printf("\nAtendendo: %s (Senha %03d)\n",
@@ -177,7 +274,25 @@ int main() {
                 }
                 int resultado = buscaBinaria(vet,tam,senha);
                 if (resultado != -1) {
-                    printf("\nCliente encontrado: %s - Fone: %s\n", vet[resultado].nome, vet[resultado].telefone);
+                    const int L = 68;
+                    printf("\n");
+                    printf("\xC9");
+                    for(int i = 0; i < L; i++) printf("\xCD");
+                    printf("\xBB\n");
+                    imprimirCentroLinha("CLIENTE ENCONTRADO", L);
+                    printf("\xC7");
+                    for(int i = 0; i < L; i++) printf("\xC4");
+                    printf("\xB6\n");
+
+                    char linha1[L], linha2[L];
+                    snprintf(linha1, sizeof(linha1), " Nome: %s", vet[resultado].nome);
+                    snprintf(linha2, sizeof(linha2), " Telefone: %s", vet[resultado].telefone);
+                    imprimirCentroLinha(linha1, L);
+                    imprimirCentroLinha(linha2, L);
+
+                    printf("\xC8");
+                    for(int i = 0; i < L; i++) printf("\xCD");
+                    printf("\xBC\n");
                 }
                 else {
                     printf("\nCliente nao encontrado.\n");

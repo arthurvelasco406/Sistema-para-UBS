@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj.d"
   "CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj"
   "CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj.d"
+  "CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj"
+  "CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj.d"
   "CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj"
   "CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj.d"
   "CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj"

@@ -271,4 +271,5 @@ CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/stralign_s.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
- C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/imm.h
+ C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/imm.h \
+ C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h

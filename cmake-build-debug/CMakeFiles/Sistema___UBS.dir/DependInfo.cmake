@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/leandra/Sistema-para-UBS/functions/fila.c" "CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj" "gcc" "CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj.d"
   "C:/Users/leandra/Sistema-para-UBS/functions/funcoes.c" "CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj" "gcc" "CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj.d"
+  "C:/Users/leandra/Sistema-para-UBS/functions/funcoesImprimir.c" "CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj" "gcc" "CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj.d"
   "C:/Users/leandra/Sistema-para-UBS/functions/lista.c" "CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj" "gcc" "CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj.d"
   "C:/Users/leandra/Sistema-para-UBS/functions/pilha.c" "CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj" "gcc" "CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj.d"
   "C:/Users/leandra/Sistema-para-UBS/functions/pilhaTimer.c" "CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj" "gcc" "CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj.d"

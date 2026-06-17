@@ -85,10 +85,24 @@ CMakeFiles/Sistema___UBS.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Sistema___UBS.dir/main.c.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\leandra\Sistema-para-UBS\main.c -o CMakeFiles\Sistema___UBS.dir\main.c.s
 
+CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj: CMakeFiles/Sistema___UBS.dir/flags.make
+CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/funcoesImprimir.c
+CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj: CMakeFiles/Sistema___UBS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj -MF CMakeFiles\Sistema___UBS.dir\functions\funcoesImprimir.c.obj.d -o CMakeFiles\Sistema___UBS.dir\functions\funcoesImprimir.c.obj -c C:\Users\leandra\Sistema-para-UBS\functions\funcoesImprimir.c
+
+CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\leandra\Sistema-para-UBS\functions\funcoesImprimir.c > CMakeFiles\Sistema___UBS.dir\functions\funcoesImprimir.c.i
+
+CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\leandra\Sistema-para-UBS\functions\funcoesImprimir.c -o CMakeFiles\Sistema___UBS.dir\functions\funcoesImprimir.c.s
+
 CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj: CMakeFiles/Sistema___UBS.dir/flags.make
 CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/fila.c
 CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj: CMakeFiles/Sistema___UBS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj -MF CMakeFiles\Sistema___UBS.dir\functions\fila.c.obj.d -o CMakeFiles\Sistema___UBS.dir\functions\fila.c.obj -c C:\Users\leandra\Sistema-para-UBS\functions\fila.c
 
 CMakeFiles/Sistema___UBS.dir/functions/fila.c.i: cmake_force
@@ -102,7 +116,7 @@ CMakeFiles/Sistema___UBS.dir/functions/fila.c.s: cmake_force
 CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj: CMakeFiles/Sistema___UBS.dir/flags.make
 CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/pilha.c
 CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj: CMakeFiles/Sistema___UBS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj -MF CMakeFiles\Sistema___UBS.dir\functions\pilha.c.obj.d -o CMakeFiles\Sistema___UBS.dir\functions\pilha.c.obj -c C:\Users\leandra\Sistema-para-UBS\functions\pilha.c
 
 CMakeFiles/Sistema___UBS.dir/functions/pilha.c.i: cmake_force
@@ -116,7 +130,7 @@ CMakeFiles/Sistema___UBS.dir/functions/pilha.c.s: cmake_force
 CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj: CMakeFiles/Sistema___UBS.dir/flags.make
 CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/lista.c
 CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj: CMakeFiles/Sistema___UBS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj -MF CMakeFiles\Sistema___UBS.dir\functions\lista.c.obj.d -o CMakeFiles\Sistema___UBS.dir\functions\lista.c.obj -c C:\Users\leandra\Sistema-para-UBS\functions\lista.c
 
 CMakeFiles/Sistema___UBS.dir/functions/lista.c.i: cmake_force
@@ -130,7 +144,7 @@ CMakeFiles/Sistema___UBS.dir/functions/lista.c.s: cmake_force
 CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj: CMakeFiles/Sistema___UBS.dir/flags.make
 CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/funcoes.c
 CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj: CMakeFiles/Sistema___UBS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj -MF CMakeFiles\Sistema___UBS.dir\functions\funcoes.c.obj.d -o CMakeFiles\Sistema___UBS.dir\functions\funcoes.c.obj -c C:\Users\leandra\Sistema-para-UBS\functions\funcoes.c
 
 CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.i: cmake_force
@@ -144,7 +158,7 @@ CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.s: cmake_force
 CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj: CMakeFiles/Sistema___UBS.dir/flags.make
 CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/pilhaTimer.c
 CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj: CMakeFiles/Sistema___UBS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj -MF CMakeFiles\Sistema___UBS.dir\functions\pilhaTimer.c.obj.d -o CMakeFiles\Sistema___UBS.dir\functions\pilhaTimer.c.obj -c C:\Users\leandra\Sistema-para-UBS\functions\pilhaTimer.c
 
 CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.i: cmake_force
@@ -158,6 +172,7 @@ CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.s: cmake_force
 # Object files for target Sistema___UBS
 Sistema___UBS_OBJECTS = \
 "CMakeFiles/Sistema___UBS.dir/main.c.obj" \
+"CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj" \
 "CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj" \
 "CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj" \
 "CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj" \
@@ -168,6 +183,7 @@ Sistema___UBS_OBJECTS = \
 Sistema___UBS_EXTERNAL_OBJECTS =
 
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/main.c.obj
+Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj
@@ -177,7 +193,7 @@ Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/build.make
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/linkLibs.rsp
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/objects1.rsp
 Sistema___UBS.exe: CMakeFiles/Sistema___UBS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable Sistema___UBS.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\leandra\Sistema-para-UBS\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable Sistema___UBS.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Sistema___UBS.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

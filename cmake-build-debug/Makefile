@@ -183,6 +183,30 @@ functions/funcoes.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Sistema___UBS.dir\build.make CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.s
 .PHONY : functions/funcoes.c.s
 
+functions/funcoesImprimir.obj: functions/funcoesImprimir.c.obj
+.PHONY : functions/funcoesImprimir.obj
+
+# target to build an object file
+functions/funcoesImprimir.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Sistema___UBS.dir\build.make CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj
+.PHONY : functions/funcoesImprimir.c.obj
+
+functions/funcoesImprimir.i: functions/funcoesImprimir.c.i
+.PHONY : functions/funcoesImprimir.i
+
+# target to preprocess a source file
+functions/funcoesImprimir.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Sistema___UBS.dir\build.make CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.i
+.PHONY : functions/funcoesImprimir.c.i
+
+functions/funcoesImprimir.s: functions/funcoesImprimir.c.s
+.PHONY : functions/funcoesImprimir.s
+
+# target to generate assembly for a file
+functions/funcoesImprimir.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Sistema___UBS.dir\build.make CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.s
+.PHONY : functions/funcoesImprimir.c.s
+
 functions/lista.obj: functions/lista.c.obj
 .PHONY : functions/lista.obj
 
@@ -295,6 +319,9 @@ help:
 	@echo ... functions/funcoes.obj
 	@echo ... functions/funcoes.i
 	@echo ... functions/funcoes.s
+	@echo ... functions/funcoesImprimir.obj
+	@echo ... functions/funcoesImprimir.i
+	@echo ... functions/funcoesImprimir.s
 	@echo ... functions/lista.obj
 	@echo ... functions/lista.i
 	@echo ... functions/lista.s

@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdbool.h>
-
+#include "../funcoesImprimir.h"
 #include "../structs.h"
 
 /* ============================================================
@@ -57,20 +57,34 @@ void filaExibir(Fila *f, int prioridade) {
     if(filaVazia(f)) {
         return;
     }
-    
-    printf("\n ==============================");
+
+    printf("\n\xC9");
+    for(int i = 0; i < 52; i++) printf("\xCD");
+    printf("\xBB\n");
+
     if(prioridade == 1) {
-	    printf("\n |      FILA PRIORITARIA      |");
-	} else {
-		printf("\n |            FILA            |");
-	}
-    printf("\n ==============================\n");
-	int i = f->inicio;
-	while(i != f->final) {
-        printf(" | %03d - %s - Fone: %s\n\n",
-			f->itens[i].senha,
-			f->itens[i].nome,
-			f->itens[i].telefone);
+    imprimirCentroLinha(" FILA PRIORITARIA (VIP / Urgencia)",68);
+    } else {
+    imprimirCentroLinha("FILA NORMAL",68);
+    }
+
+    printf("\xC7");
+    for(int i = 0; i < 52; i++) printf("\xC4");
+    printf("\xB6\n");
+
+    int i = f->inicio;
+    while(i != f->final) {
+        char linha[64];
+        snprintf(linha, sizeof(linha), " [%03d] %-15s  Fone: %s",
+            f->itens[i].senha,
+            f->itens[i].nome,
+            f->itens[i].telefone);
+        printf("\xBA%-52s\xBA\n", linha);
         i = (i + 1) % 9;
     }
+
+    printf("\xC8");
+    for(int i = 0; i < 52; i++) printf("\xCD");
+    printf("\xBC\n");
 }
+

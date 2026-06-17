@@ -4,7 +4,7 @@
 
 #include "../structs.h"
 #include "stdlib.h"
-
+#include "../funcoesImprimir.h"
 /* ============================================================
  * FUNÇÕES DA LISTA ENCADEADA
  * ============================================================ */
@@ -63,28 +63,39 @@ No* listaRemover(No *inicio, int senha) {
 
 /* Exibe todos os clientes da lista */
 void listaExibir(No *inicio) {
+    printf("\n\xC9");
+    for(int i = 0; i < 68; i++) printf("\xCD");
+    printf("\xBB\n");
+    imprimirCentroLinha("LISTA DE PACIENTES", 68);
+    printf("\xC7");
+    for(int i = 0; i < 68; i++) printf("\xC4");
+    printf("\xB6\n");
 
     if (inicio == NULL) {
-        printf("\n Lista vazia!\n");
+        imprimirCentroLinha("Nenhum paciente cadastrado.",68);
+        printf("\xC8");
+        for(int i = 0; i < 68; i++) printf("\xCD");
+        printf("\xBC\n");
         return;
     }
 
     No *noh = inicio;
-    
-    printf("\n ==============================");
-    printf("\n |     LISTA DE PACIENTES     |");
-    printf("\n ==============================\n");
-
     while (noh) {
-        char prioridade[10] = "Normal";
-        if (noh->dado.prioritario == 1) strcpy(prioridade,"Urgência");
-        printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
+        char prioridade[12] = "Normal";
+        if (noh->dado.prioritario == 1) strcpy(prioridade, "Urgencia");
+        char linha[68];
+        snprintf(linha, sizeof(linha), " [%03d] %-15s  Fone: %-11s Prioridade: [%s]",
             noh->dado.senha,
             noh->dado.nome,
             noh->dado.telefone,
             prioridade);
+        printf("\xBA%-68s\xBA\n", linha);
         noh = noh->prox;
     }
+
+    printf("\xC8");
+    for(int i = 0; i < 68; i++) printf("\xCD");
+    printf("\xBC\n");
 }
 
 /* Libera toda a memória da lista */

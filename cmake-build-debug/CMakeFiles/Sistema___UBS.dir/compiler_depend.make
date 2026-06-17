@@ -269,6 +269,7 @@ CMakeFiles/Sistema___UBS.dir/functions/fila.c.obj: C:/Users/leandra/Sistema-para
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+  C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h \
   C:/Users/leandra/Sistema-para-UBS/structs.h
 
 CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/funcoes.c \
@@ -539,7 +540,25 @@ CMakeFiles/Sistema___UBS.dir/functions/funcoes.c.obj: C:/Users/leandra/Sistema-p
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+  C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h \
   C:/Users/leandra/Sistema-para-UBS/structs.h
+
+CMakeFiles/Sistema___UBS.dir/functions/funcoesImprimir.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/funcoesImprimir.c \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
+  C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h
 
 CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/lista.c \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/adxintrin.h \
@@ -809,6 +828,7 @@ CMakeFiles/Sistema___UBS.dir/functions/lista.c.obj: C:/Users/leandra/Sistema-par
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+  C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h \
   C:/Users/leandra/Sistema-para-UBS/structs.h
 
 CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/pilha.c \
@@ -1079,6 +1099,7 @@ CMakeFiles/Sistema___UBS.dir/functions/pilha.c.obj: C:/Users/leandra/Sistema-par
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+  C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h \
   C:/Users/leandra/Sistema-para-UBS/structs.h
 
 CMakeFiles/Sistema___UBS.dir/functions/pilhaTimer.c.obj: C:/Users/leandra/Sistema-para-UBS/functions/pilhaTimer.c \
@@ -1614,6 +1635,7 @@ CMakeFiles/Sistema___UBS.dir/main.c.obj: C:/Users/leandra/Sistema-para-UBS/main.
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h \
+  C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h \
   C:/Users/leandra/Sistema-para-UBS/structs.h
 
 
@@ -2161,6 +2183,10 @@ C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include
 
 C:/Program\ Files/JetBrains/CLion\ 2025.1.3/bin/mingw/x86_64-w64-mingw32/include/wtypesbase.h:
 
+C:/Users/leandra/Sistema-para-UBS/funcoesImprimir.h:
+
 C:/Users/leandra/Sistema-para-UBS/structs.h:
+
+C:/Users/leandra/Sistema-para-UBS/functions/funcoesImprimir.c:
 
 C:/Users/leandra/Sistema-para-UBS/main.c:

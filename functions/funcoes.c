@@ -3,7 +3,7 @@
 
 #include "stdio.h"
 #include "../structs.h"
-
+#include "../funcoesImprimir.h"
 /* ============================================================
  * ALGORITMO DE BUSCA — Binária
  * ============================================================ */
@@ -35,19 +35,19 @@ int buscaBinaria(Cliente vet[], int n, int senha) {
  * ============================================================ */
 
 /* Ordena vetor de clientes por número de senha (crescente) */
-// void ordenar(Cliente vet[], int n) {
-//     Cliente aux;
-//     for (int i =0; i < n -1; i++) {
-//
-//         for (int j = 0; j < i;j++) {
-//             if (vet[j].senha > vet[j+1].senha) {
-//                 aux = vet[j];
-//                 vet[j] = vet[j+1];
-//                 vet[j+1] = aux;
-//             }
-//         }
-//     }
-// }
+void ordenar(Cliente vet[], int n) {
+    Cliente aux;
+    for (int i =0; i < n -1; i++) {
+
+        for (int j = 0; j < i;j++) {
+            if (vet[j].senha > vet[j+1].senha) {
+                aux = vet[j];
+                vet[j] = vet[j+1];
+                vet[j+1] = aux;
+            }
+        }
+    }
+}
 void ordenarPorTempo(PilhaTimer *p, int n) {
     AtendimentoTimer aux;
     for (int i = 0; i < p->topo - 1; i++) {
@@ -69,26 +69,45 @@ void ordenarPorTempo(PilhaTimer *p, int n) {
 /* Gera relatório de atendimentos ordenado */
 void gerarRelatorio(PilhaTimer *p) {
     if (pilhaTimerVazia(p)) {
-        printf("\nHistorico vazio!\n");
+        printf("\n\xC9");
+        for(int i = 0; i < 68; i++) printf("\xCD");
+        printf("\xBB\n");
+        imprimirCentroLinha("RELATORIO DE ATENDIMENTOS",68);
+        printf("\xC7");
+        for(int i = 0; i < 68; i++) printf("\xC4");
+        printf("\xB6\n");
+        imprimirCentroLinha(" Nenhum atendimento registrado.",68);
+        printf("\xC8");
+        for(int i = 0; i < 68; i++) printf("\xCD");
+        printf("\xBC\n");
         return;
     }
-    ordenarPorTempo(p,p->topo);
-    printf("\n ==============================");
-    printf("\n |         RELATORIO          |");
-    printf("\n ==============================\n");
+
+    ordenarPorTempo(p, p->topo);
+
+    printf("\n\xC9");
+    for(int i = 0; i < 68; i++) printf("\xCD");
+    printf("\xBB\n");
+        imprimirCentroLinha("RELATORIO DE ATENDIMENTOS",68);
+    printf("\xC7");
+    for(int i = 0; i < 68; i++) printf("\xC4");
+    printf("\xB6\n");
 
     for (int i = 0; i < p->topo; i++) {
-        char prioridade[10] = "Normal";
+        char prioridade[12] = "Normal";
         if (p->itens[i].cliente.prioritario == 1) strcpy(prioridade, "Urgencia");
-
-        printf("\n | %03d - %s - Fone: %s - Prioridade = %s - Tempo: %.2fs",
+        char linha[64];
+        snprintf(linha, sizeof(linha), " [%03d] %-15s Prioridade: [%s] Tempo: %.2fs",
             p->itens[i].cliente.senha,
             p->itens[i].cliente.nome,
-            p->itens[i].cliente.telefone,
             prioridade,
             p->itens[i].tempo / 1000.0f);
+        printf("\xBA%-68s\xBA\n", linha);
     }
-    printf("\n ==============================\n");
+
+    printf("\xC8");
+    for(int i = 0; i < 68; i++) printf("\xCD");
+    printf("\xBC\n");
 }
 
 /* ============================================================
