@@ -1,7 +1,9 @@
-
 /* ============================================================
  * DEFINIÇÃO DAS STRUCTS
  * ============================================================ */
+
+#include <stdbool.h>
+#include <windows.h>
 
 /* Struct do cliente — adaptar conforme parâmetros do grupo */
 typedef struct cliente {
@@ -30,6 +32,17 @@ typedef struct {
     int topo;
 } Pilha;
 
+typedef struct {
+    Cliente cliente;
+    DWORD tick_inicio;
+    DWORD tick_fim;
+    DWORD tempo;
+} AtendimentoTimer;
+
+typedef struct {
+    AtendimentoTimer itens[4];
+    int topo;
+} PilhaTimer;
 /* ============================================================
  * FUNÇÕES DA FILA
  * ============================================================ */
@@ -44,7 +57,7 @@ void filaInserir(Fila *f, Cliente c);
 
 Cliente filaRemover(Fila *f);
 
-void filaExibir(Fila *f);
+void filaExibir(Fila *f, int n);
 
 /* ============================================================
  * FUNÇÕES DA PILHA (HISTÓRICO)
@@ -62,6 +75,16 @@ Cliente pilhaDesempilhar(Pilha *p);
 
 void pilhaExibir(Pilha *p);
 
+
+void pilhaTimerInicializar(PilhaTimer *p);
+
+int pilhaTimerVazia(PilhaTimer *p);
+
+int pilhaTimerCheia(PilhaTimer *p);
+
+void pilhaTimerEmpilhar(PilhaTimer *p, AtendimentoTimer t);
+
+AtendimentoTimer pilhaTimerDesempilhar(PilhaTimer *p);
 /* ============================================================
  * FUNÇÕES DA LISTA ENCADEADA
  * ============================================================ */
@@ -87,17 +110,19 @@ int buscaBinaria(Cliente vet[], int n, int senha);
  * ============================================================ */
 
 void ordenar(Cliente vet[], int n);
-
+void ordenarPorTempo(PilhaTimer vet[], int n);
 /* ============================================================
  * RELATÓRIO
  * ============================================================ */
 
-void gerarRelatorio(Cliente historico[], int n);
+void gerarRelatorio(PilhaTimer historico[]);
 
 /* ============================================================
  * REQUISITO ÚNICO DO GRUPO G07
  * ============================================================ */
 
+bool cicloClientes(Cliente *c, Fila *f, Fila *fp, int *n);
+void clear_input_buffer();
 /*
  * Dois tipos de fila intercalados: fila normal e prioritária; regra de chamada: 1 prioritário a cada 2 normais.
  * TODO: implementar a função (ou funções) necessárias aqui.

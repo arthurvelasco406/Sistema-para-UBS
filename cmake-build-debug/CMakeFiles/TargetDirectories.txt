@@ -1,0 +1,3 @@
+C:/Users/leandra/Sistema-para-UBS/cmake-build-debug/CMakeFiles/Sistema___UBS.dir
+C:/Users/leandra/Sistema-para-UBS/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/leandra/Sistema-para-UBS/cmake-build-debug/CMakeFiles/rebuild_cache.dir

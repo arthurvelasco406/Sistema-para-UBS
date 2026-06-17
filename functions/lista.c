@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 #include "../structs.h"
 #include "stdlib.h"
 
@@ -64,20 +65,19 @@ No* listaRemover(No *inicio, int senha) {
 void listaExibir(No *inicio) {
 
     if (inicio == NULL) {
-        printf("\n Lista vazia! ");
+        printf("\n Lista vazia!\n");
         return;
     }
 
     No *noh = inicio;
-    char prioridade[10] = "Normal";
-
-    if (noh->dado.prioritario == 1) strcpy(prioridade,"Urgência");
-
+    
     printf("\n ==============================");
     printf("\n |     LISTA DE PACIENTES     |");
     printf("\n ==============================\n");
 
     while (noh) {
+        char prioridade[10] = "Normal";
+        if (noh->dado.prioritario == 1) strcpy(prioridade,"Urgência");
         printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
             noh->dado.senha,
             noh->dado.nome,

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.2)
+cmake_minimum_required(VERSION 3.31.6)
 project(Sistema___UBS C)
 set(CMAKE_C_STANDARD 11)
 add_executable(Sistema___UBS main.c
@@ -6,4 +6,5 @@ add_executable(Sistema___UBS main.c
         functions/fila.c
         functions/pilha.c
         functions/lista.c
-        functions/funcoes.c)
+        functions/funcoes.c
+        functions/pilhaTimer.c)
