@@ -35,15 +35,27 @@ int buscaBinaria(Cliente vet[], int n, int senha) {
  * ============================================================ */
 
 /* Ordena vetor de clientes por número de senha (crescente) */
-void ordenar(Cliente vet[], int n) {
-    Cliente aux;
-    for (int i =0; i < n -1; i++) {
-
-        for (int j = 0; j < i;j++) {
-            if (vet[j].senha > vet[j+1].senha) {
-                aux = vet[j];
-                vet[j] = vet[j+1];
-                vet[j+1] = aux;
+// void ordenar(Cliente vet[], int n) {
+//     Cliente aux;
+//     for (int i =0; i < n -1; i++) {
+//
+//         for (int j = 0; j < i;j++) {
+//             if (vet[j].senha > vet[j+1].senha) {
+//                 aux = vet[j];
+//                 vet[j] = vet[j+1];
+//                 vet[j+1] = aux;
+//             }
+//         }
+//     }
+// }
+void ordenarPorTempo(PilhaTimer *p, int n) {
+    AtendimentoTimer aux;
+    for (int i = 0; i < p->topo - 1; i++) {
+        for (int j = 0; j < p->topo - 1 - i; j++) {
+            if (p->itens[j].tempo > p->itens[j+1].tempo) {
+                aux          = p->itens[j];
+                p->itens[j]   = p->itens[j+1];
+                p->itens[j+1] = aux;
             }
         }
     }
@@ -55,29 +67,28 @@ void ordenar(Cliente vet[], int n) {
  * ============================================================ */
 
 /* Gera relatório de atendimentos ordenado */
-void gerarRelatorio(Cliente historico[], int n) {
-    if (n == 0) {
+void gerarRelatorio(PilhaTimer *p) {
+    if (pilhaTimerVazia(p)) {
         printf("\nHistorico vazio!\n");
         return;
     }
-    Cliente aux[n];
-    for (int i = 0; i < n; i++) aux[i] = historico[i];
-    ordenar(aux, n);
-    int i;
-
+    ordenarPorTempo(p,p->topo);
     printf("\n ==============================");
     printf("\n |         RELATORIO          |");
     printf("\n ==============================\n");
 
-    for (i = 0; i < n; i++) {
-            char prioridade[10] = "Normal";
-            if (aux[i].prioritario == 1) strcpy(prioridade,"Urgência");
-            printf("\n | %03d - %s - Fone: %s - Prioridade = %s",
-                aux[i].senha,
-                aux[i].nome,
-                aux[i].telefone,
-                prioridade);
+    for (int i = 0; i < p->topo; i++) {
+        char prioridade[10] = "Normal";
+        if (p->itens[i].cliente.prioritario == 1) strcpy(prioridade, "Urgencia");
+
+        printf("\n | %03d - %s - Fone: %s - Prioridade = %s - Tempo: %.2fs",
+            p->itens[i].cliente.senha,
+            p->itens[i].cliente.nome,
+            p->itens[i].cliente.telefone,
+            prioridade,
+            p->itens[i].tempo / 1000.0f);
     }
+    printf("\n ==============================\n");
 }
 
 /* ============================================================
@@ -121,3 +132,5 @@ bool cicloClientes(Cliente *atendido, Fila *fila, Fila *filaPrior, int *ciclo) {
         // discard characters
     }
 }
+
+

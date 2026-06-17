@@ -41,20 +41,23 @@ int main() {
     Fila   filaPrioritaria;
     Pilha  historico;
 	Pilha  retira;
+    PilhaTimer relatorio;
     No    *lista   = NULL;
     int    opcao   = 0;
     int    proxSenha = 1;
     int    ciclo = 0;
-
+    AtendimentoTimer timer = {0};
+    bool timerValido = false;
     filaInicializar(&fila);
     filaInicializar(&filaPrioritaria);
     pilhaInicializar(&historico);
 	pilhaInicializar(&retira);
+    pilhaTimerInicializar(&relatorio);
 
     printf("=== Sistema de Atendimento — UBS ===\n\n");
 
     do {
-    	
+
         printf("\n--- MENU ---\n");
         printf("1. Cadastrar novo cliente\n");
         printf("2. Chamar proximo cliente\n");
@@ -119,20 +122,26 @@ int main() {
                 clear_input_buffer();
 
                 c.senha = proxSenha++;
-				
-                /* TODO: ler campo extra conforme tipo */
+
                 if (c.prioritario == 1) {
                     filaInserir(&filaPrioritaria, c);
                 } else {
                     filaInserir(&fila, c);
                 }
-				
+
                 lista = listaInserir(lista, c);
                 printf("\nCliente cadastrado. Senha: %03d\n",
                     c.senha);
                 break;
             }
             case 2: {
+                if (timerValido) {
+                    timer.tick_fim = GetTickCount();
+                    timer.tempo = timer.tick_fim - timer.tick_inicio;
+                    timerValido = false;
+                    pilhaTimerEmpilhar(&relatorio,timer);
+
+                }
                 Cliente atendido;
                 if (!cicloClientes(&atendido, &fila, &filaPrioritaria, &ciclo)) {
                     break;
@@ -140,32 +149,32 @@ int main() {
                 if (pilhaCheia(&historico) == 1) {
                         pilhaDesempilhar(&historico);
                     }
+                if (pilhaTimerCheia(&relatorio) == 1) {
+                        pilhaTimerDesempilhar(&relatorio);
+                }
                 pilhaEmpilhar(&historico, atendido);
                 printf("\nAtendendo: %s (Senha %03d)\n",
                     atendido.nome,
                     atendido.senha);
 
-                // Temporizador para relatorio..?
-
+                    timer.cliente = atendido;
+                    timer.tick_inicio = GetTickCount();
+                    timerValido = true;
                 break;
             }
             case 3: {
                 int senha;
                 printf("\nNumero da senha: ");
                 scanf("%d", &senha);
-                /* TODO: usar Binária */
-                /* Converter lista para vetor auxiliar antes da busca */
                 Cliente vet[9];
                 int tam = 0;
                 No* aux = lista;
-                
+
                 while (aux != NULL && tam < 9) {
                     vet[tam] = aux->dado;
                     tam++;
                     aux = aux->prox;
                 }
-                
-                ordenar(vet,tam);
                 int resultado = buscaBinaria(vet,tam,senha);
                 if (resultado != -1) {
                     printf("\nCliente encontrado: %s - Fone: %s\n", vet[resultado].nome, vet[resultado].telefone);
@@ -193,12 +202,7 @@ int main() {
                 break;
                 }
             case 7: {
-                Cliente auxHistorico[4];
-                int i;
-                for (i = 0; i < historico.topo; i++) {
-                    auxHistorico[i] = historico.itens[i];
-                }
-                gerarRelatorio(auxHistorico, historico.topo);
+                gerarRelatorio(&relatorio);
                 break;
             }
             case 0: {

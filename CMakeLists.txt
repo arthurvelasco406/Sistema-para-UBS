@@ -6,4 +6,5 @@ add_executable(Sistema___UBS main.c
         functions/fila.c
         functions/pilha.c
         functions/lista.c
-        functions/funcoes.c)
+        functions/funcoes.c
+        functions/pilhaTimer.c)
