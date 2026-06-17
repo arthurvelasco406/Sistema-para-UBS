@@ -1,6 +1,5 @@
 #include <stdbool.h>
 #include <string.h>
-
 #include "stdio.h"
 #include "../structs.h"
 
@@ -35,19 +34,20 @@ int buscaBinaria(Cliente vet[], int n, int senha) {
  * ============================================================ */
 
 /* Ordena vetor de clientes por número de senha (crescente) */
-// void ordenar(Cliente vet[], int n) {
-//     Cliente aux;
-//     for (int i =0; i < n -1; i++) {
-//
-//         for (int j = 0; j < i;j++) {
-//             if (vet[j].senha > vet[j+1].senha) {
-//                 aux = vet[j];
-//                 vet[j] = vet[j+1];
-//                 vet[j+1] = aux;
-//             }
-//         }
-//     }
-// }
+void ordenar(Cliente vet[], int n) {
+    Cliente aux;
+    for (int i =0; i < n -1; i++) {
+
+        for (int j = 0; j < i;j++) {
+            if (vet[j].senha > vet[j+1].senha) {
+                aux = vet[j];
+                vet[j] = vet[j+1];
+                vet[j+1] = aux;
+            }
+        }
+    }
+}
+
 void ordenarPorTempo(PilhaTimer *p, int n) {
     AtendimentoTimer aux;
     for (int i = 0; i < p->topo - 1; i++) {
@@ -97,7 +97,6 @@ void gerarRelatorio(PilhaTimer *p) {
 
 /*
  * Dois tipos de fila intercalados: fila normal e prioritária; regra de chamada: 1 prioritário a cada 2 normais.
- * TODO: implementar a função (ou funções) necessárias aqui.
  */
 
 bool cicloClientes(Cliente *atendido, Fila *fila, Fila *filaPrior, int *ciclo) {

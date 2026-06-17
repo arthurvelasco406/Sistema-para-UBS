@@ -29,5 +29,7 @@
 + Gabriel - O início da fila passa a ser [2] e o final dela passa a ser [6]. <br> Estado do vetor = [-,-,3,4,5,6,7,-,-]
 
 #### O algoritmo de ordenação do grupo é estável? Isso importa no contexto escolhido? Justifique.
-+ Leandra - 
++ Arthur - Sim, é estável. Acredito que isso seja importante para garantir que o relatório esteja consistente e seja entregue no mesmo formato.
+
 #### Demonstre o estado da lista encadeada após as três primeiras inserções com dados reais do contexto.
++ No lista = {Cliente{senha=1; nome=arthur; prioritario=1; telefone=1111-1111}; *prox={Cliente{senha=2; nome=leandra; prioritario=0; telefone=2222-2222}; *prox={Cliente{senha=3; nome=gabriel; prioritario=0; telefone=3333-3333}; *prox=NULL}}
